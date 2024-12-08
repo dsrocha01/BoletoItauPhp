@@ -3,8 +3,8 @@
 namespace App;
 
 /**
- * Classe de configuração da aplicação.
- * esta classe possui os dados de configuração da API do Itaú.
+ * Classe de configuraÃ§Ã£o da aplicaÃ§Ã£o.
+ * esta classe possui os dados de configuraÃ§Ã£o da API do ItaÃº.
  * @version 1.0
  * @author Douglas
  */
@@ -21,11 +21,11 @@ class Configuracao
 
     public function __construct()
     {
-        $this->ambiente = 1; // 1 - Produção, 2 - Homologação
+        $this->ambiente = 1; // 1 - ProduÃ§Ã£o, 2 - HomologaÃ§Ã£o
         $this->urlAutenticacao = $this->ambiente == 1 ? "https://sts.itau.com.br/api/oauth/token" : "https://sts.itau.com.br/api/oauth/token";
         $this->urlBoletos = $this->ambiente == 1 ? "https://api.itau.com.br/cash_management/v2/" : "https://devportal.itau.com.br/sandboxapi/cash_management_ext_v2/v2";
-        $this->clientId = $this->ambiente == 1 ? "24119e85-2cff-4a45-ba0d-37e0e120d244" : "2e5d1708-8b1d-3597-85a5-31768e7b0f67";
-        $this->clientSecret = $this->ambiente == 1 ? "8b327bd9-f7bb-4507-a109-2d266fcbce02" : "cc27d880-30a8-4cac-9ef7-83caa7f8b9f8";
+        $this->clientId = $this->ambiente == 1 ? "" : "";
+        $this->clientSecret = $this->ambiente == 1 ? "" : "";
         $this->caminhoCertificado = "certificado/certificado.crt";
         $this->caminhoChavePrivada = "certificado/chavePrivada.key";
     }
