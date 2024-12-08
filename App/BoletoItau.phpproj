@@ -1,0 +1,12 @@
+<Project Sdk="Devsense.Php.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>db198b49-ea59-4fba-9cb3-89f1e8d6b3c0</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnvName>PHPDev</EnvName>
+    <RuntimeVersion>8.3</RuntimeVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="certificado\" />
+  </ItemGroup>
+</Project>
