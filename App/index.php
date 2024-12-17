@@ -7,15 +7,25 @@ include 'ViewModels/BoletoViewModel.php';
 $itauBoleto = new BoletoItau();
 
 $token = $itauBoleto->getToken();
+$scopo = $itauBoleto->getScopo();
 
 $funcoes = $itauBoleto->funcoes;
 
-//Calcula o DAC para o id_beneficiario (AG + CC + DAC)
-$dac = $funcoes->calcularDacModulo11('05760655724');
-$dac = $funcoes->calcularDacModulo10('05760655724');
-$idBeneficiario = "05760655724". $dac;
+//$scopos = explode(' ', $scopo);
 
 
+//foreach ($scopos as $key => $value) {
+//    echo '' . $value . '<br>';
+//}
+
+echo '<pre>';
+
+
+//Calcula o DAC para o id_beneficiario (AG + CC (sem o digito) + DAC)
+$agencia = '0576';
+$conta = '0065572';
+$idBeneficiario = $funcoes->calcularIdBeneficiario($agencia, $conta);
+echo 'idBeneficiario - Modulo 10:' . $idBeneficiario . '<br>';
 //Dados do Boleto
 $boletoData = new BoletoViewModel();
 $boletoData->data->etapa_processo_boleto = "validacao";
@@ -38,7 +48,7 @@ $boletoData->data->dado_boleto->numero_telefone = '964755068';
 
 $boletoData->data->dado_boleto->pagador->pessoa->nome_pessoa = "Pessoa teste";
 $boletoData->data->dado_boleto->pagador->pessoa->tipo_pessoa->codigo_tipo_pessoa = "F";
-$boletoData->data->dado_boleto->pagador->pessoa->tipo_pessoa->numero_cadastro_pessoa_fisica = "88182279046";
+$boletoData->data->dado_boleto->pagador->pessoa->tipo_pessoa->numero_cadastro_pessoa_fisica = "11888608790";
 
 $boletoData->data->dado_boleto->pagador->texto_endereco_email = "exemplo@itau.com.br";
 
@@ -81,7 +91,7 @@ if($boletoData->data->dado_boleto->multa->codigo_tipo_multa == "01"){
     $dadosIndividuaisBoleto->data->dado_boleto->multa->valor_multa = 'valor_multa';
 }
 
-$boletoData->data->dado_boleto->multa->data_multa = "2024-12-21";
+$boletoData->data->dado_boleto->multa->data_multa = "2024-12-31";
 $boletoData->data->dado_boleto->multa->percentual_multa = "000000100000";
 $boletoData->data->dado_boleto->multa->quantidade_dias_multa = 1;
 
@@ -92,7 +102,7 @@ if($boletoData->data->dado_boleto->juros->codigo_tipo_juros == 93){
 }else{
     unset($boletoData->data->dado_boleto->juros->valor_juros);
 }
-$boletoData->data->dado_boleto->juros->data_juros = "2024-12-21";
+$boletoData->data->dado_boleto->juros->data_juros = "2024-12-31";
 $boletoData->data->dado_boleto->juros->quantidade_dias_juros = 90;
 $boletoData->data->dado_boleto->juros->percentual_juros = "000000100000";
 

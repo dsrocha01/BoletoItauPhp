@@ -15,8 +15,6 @@ class FuncoesClass
         $fatorIndex = 0;
 
         // Percorre o número de trás para frente
-        $tamanho = strlen($numero);
-
         for ($i = strlen($numero) - 1; $i >= 0; $i--) {
             $soma += intval($numero[$i]) * $fatores[$fatorIndex];
             $fatorIndex = ($fatorIndex + 1) % count($fatores);
@@ -82,6 +80,12 @@ class FuncoesClass
         return $dac;
     }
 
+    public function calcularIdBeneficiario($agencia, $conta)
+    {
+        $numero = $agencia . $conta;
+        $dac = $this->calcularDacModulo10($numero);
+        return $agencia . $conta . $dac;
+    }
     // Função para converter todos os valores de um array ou objeto para UTF-8
     public function convertToUtf8($data)
     {

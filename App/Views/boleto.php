@@ -1,3 +1,29 @@
+<?php
+// Declaração das variáveis
+$linha_digitavel = htmlspecialchars($_POST['linha_digitavel']);
+$local_pagamento = htmlspecialchars($_POST['local_pagamento']);
+$vencimento = htmlspecialchars($_POST['vencimento']);
+$beneficiario = htmlspecialchars($_POST['beneficiario']);
+$beneficiario_cnpj_cpf = htmlspecialchars($_POST['beneficiario_cnpj_cpf']);
+$beneficiario_endereco = htmlspecialchars($_POST['beneficiario_endereco']);
+$agencia_codigo_beneficiario = htmlspecialchars($_POST['agencia_codigo_beneficiario']);
+$data_documento = htmlspecialchars($_POST['data_documento']);
+$numero_documento = htmlspecialchars($_POST['numero_documento']);
+$especie_doc = htmlspecialchars($_POST['especie_doc']);
+$aceite = htmlspecialchars($_POST['aceite']);
+$data_processamento = htmlspecialchars($_POST['data_processamento']);
+$nosso_numero = htmlspecialchars($_POST['nosso_numero']);
+$carteira = htmlspecialchars($_POST['carteira']);
+$valor_documento = htmlspecialchars($_POST['valor_documento']);
+$instrucoes = nl2br(htmlspecialchars($_POST['instrucoes']));
+$descontos_abatimentos = htmlspecialchars($_POST['descontos_abatimentos']);
+$juros_multa = htmlspecialchars($_POST['juros_multa']);
+$pagador = htmlspecialchars($_POST['pagador']);
+$pagador_cnpj_cpf = htmlspecialchars($_POST['pagador_cnpj_cpf']);
+$pagador_endereco = htmlspecialchars($_POST['pagador_endereco']);
+$sacador_avalista = htmlspecialchars($_POST['sacador_avalista']);
+$sacador_avalista_cnpj_cpf = htmlspecialchars($_POST['sacador_avalista_cnpj_cpf']);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -116,9 +142,9 @@
                 <td class="left" colspan="6">
                     <p style="">Local de Pagamento  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officia doloribus ut porro.</p>
                 </td>
-                <td class="center">
-                    <p>Data de Vencimento</p>
-                    20/12/2024
+                <td class="left">
+                    Vencimento
+                    <p style="font-size:13px; text-align:center; margin-bottom: 0;">20/12/2024</p>
                 </td>
             </tr>
             <tr>
@@ -242,20 +268,19 @@
             </tr>
             <tr>
                 <td class="left" colspan="6">
-                    <p>Local de Pagamento</p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officia labore reprehenderit numquam
-                    doloribus ut porro laboriosam itaque ipsa ratione.
+                    <p style="">Local de Pagamento  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officia doloribus ut porro.</p>
                 </td>
-                <td class="center">
-                    <p>Data de Vencimento</p>
-                    02/01/2001
+                <td class="left">
+                    Vencimento
+                    <p style="font-size:13px; text-align:center; margin-bottom: 0;">20/12/2024</p>
                 </td>
             </tr>
             <tr>
                 <td class="left" colspan="6">
-                    <p>Nome do Beneficiário / CNPJ / CPF / Endereço:</p>
-                    Fulano de Tal CPF: 123.456.789.10 <br>
-                    Rua Suvaco da Cobra, 9 - Narnia - Amazonas - AM - 69060-000
+                    <span>Beneficiário</span> <br />
+                    <span style="text-transform: uppercase; font-weight: bold; font-size:1.2em">Fulano de Tal  <span style="font-weight:bold; margin-left:20px;">CNPJ/CPF:</span> 123.456.789.10</span>
+                    <br>
+                    Rua Xyz, 9 - Niteroi - Rio de Janeiro - RJ - 69060-000
                 </td>
                 <td class="center">
                     <p>Agência/Código Beneficiário</p>
